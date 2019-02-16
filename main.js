@@ -3,13 +3,22 @@ let orderElement = 1;
 let listWrapper;
 
 const init = () => {
- const btn = document.createElement('button');
- btn.textContent = 'Dodaj elementy';
- listWrapper = document.createElement('ul');
+    const btn = document.createElement('button');
+    btn.textContent = 'Dodaj elementy';
+    const reset = document.createElement('button');
+    reset.textContent = 'RESET';
+    reset.style.marginLeft = '20px';
+    listWrapper = document.createElement('ul');
 
- document.body.append(btn, listWrapper);
+    document.body.append(btn, reset, listWrapper);
 
- btn.addEventListener('click', createLiElements);
+    btn.addEventListener('click', createLiElements);
+
+    reset.addEventListener('click', function () {
+        const ul = document.querySelector('ul').textContent = "";
+        orderElement = 1;
+        size = 10;
+    })
 }
 
 const createLiElements = () => {
